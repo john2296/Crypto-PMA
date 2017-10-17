@@ -97,4 +97,45 @@ ipsec pki --print --in certs/vpn_rB_Cert.der
 # or with openssl
 openssl x509 -inform DER -in certs/vpn_rB_Cert.der -noout -text
 
+################################################################
+#########################################
+## for one end of the VPN (rA in our case)
+
+# generate the private key for one end of the vpn 
+# The directory it needs to take place in is /home/john/nklabs/ipsec/rC/etc/ipsec.d
+ipsec pki --gen \
+  --type rsa \
+  --size 1024 \
+  --outform der > private/vpn_rC_Key.der
+  
+chmod 600 private/vpn_rA_Key.der
+
+# generate the related cert signing request
+ipsec pki --pub \
+  --in private/vpn_rC_Key.der \
+  --type rsa \
+  --outform der > csr/vpn_rC_csr.der
+
+################################################
+# then get it signed / issued as a certificate by the CA
+# note the common name CN or the subject alternate name (--san)
+# MUST match the public domain name or ip addr of the server
+ipsec pki --issue \
+  --in /home/john/nklabs/ipsec/rC/etc/ipsec.d/certs/vpn_rC_Cert.der \
+  --lifetime 365 \
+  --cacert cacerts/CA_Cert.der \
+  --cakey private/CA_Key.der \
+  --dn "C=UK, O=CSC at Uni of Warwick, OU=Cyber Teaching Examples, CN=ra.cyber.test" \
+  --san 213.1.133.1  \
+  --san @213.1.133.1 \
+  --flag serverAuth \
+  --flag ikeIntermediate \
+  --outform der > /home/john/nklabs/ipsec/rC/etc/ipsec.d/certs/vpn_rC_Cert.der
+  
+# see how it looks
+ipsec pki --print --in certs/vpn_rA_Cert.der
+
+# or with openssl
+openssl x509 -inform DER -in certs/vpn_rA_Cert.der -noout -text
+
 

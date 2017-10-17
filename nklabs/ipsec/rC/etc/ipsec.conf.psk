@@ -21,7 +21,7 @@ config setup
 ## (one conn block per vpn)             ##
 
 ####################################
-## the rA end of the rA to rB vpn ##
+## the rC end of the rA to rB to rC vpn ##
 conn rA-rB-vpn                    # 
         authby=secret             # psk is synonym of secret
         auto=start                # initiate connection at startup
@@ -30,13 +30,13 @@ conn rA-rB-vpn                    #
         pfs=yes                   # perfect forward secrecy
         type=tunnel               # main alternative is transport
                                   # by convention, left is the local end, right is the remote end
-        left=192.0.2.2            # public routable ip address (Warwick)
-        leftsubnet=172.22.22.40/29 # address range "hidden" behind the left end (Warwick)
-        right=198.51.100.2        # public routable ip address (London)
-        rightsubnet=10.0.0.0/27   # address range "hidden" behind the right end (London)
+        left=213.1.133.2            # public routable ip address (Warwick)
+        leftsubnet=192.168.65.0/24 # address range "hidden" behind the left end (Warwick)
+        right=192.0.2.2        # public routable ip address (London)
+        rightsubnet=172.33.33.40/29   # address range "hidden" behind the right end (London)
  ######################################### New Added ##############################################
-	bottom=213.1.133.2	  # public routable ip address for Frankfurt
-	bottomsubnet=192.168.65.0/24 # address range "hidden" behind the bottom end (Frankfurt)
+	bottom=198.41.100.2	  # public routable ip address for Frankfurt
+	bottomsubnet=10.0.0.0/27 # address range "hidden" behind the bottom end (Frankfurt)
 
 
 

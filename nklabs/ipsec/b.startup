@@ -1,3 +1,4 @@
 ifconfig eth0 hw ether b0:bb:bb:bb:bb
 ifconfig eth0 10.0.0.2/27
-route add default gw 10.0.0.1
+#route add default gw 10.0.0.1
+route add default gw 198.51.100.1

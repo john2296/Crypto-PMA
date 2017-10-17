@@ -30,10 +30,13 @@ conn rA-rB-vpn                    #
         pfs=yes                   # perfect forward secrecy
         type=tunnel               # main alternative is transport
                                   # by convention, left is the local end, right is the remote end
-        left=198.51.100.2        # public routable ip address
-        leftsubnet=10.0.0.0/27   # address range "hidden" behind the left end
-        right=192.0.2.2          # public routable ip address
-        rightsubnet=172.22.22.40/29 # address range "hidden" behind the right end
+        left=198.51.100.2        # public routable ip address (London)
+        leftsubnet=10.0.0.0/27   # address range "hidden" behind the left end (London)
+        right=192.0.2.2          # public routable ip address (Warwick)
+        rightsubnet=172.22.22.40/29 # address range "hidden" behind the right end (Warwick)
+###################################################################################################
+	bottom=213.1.133.2   	 # public routable ip address (Frankfurt)
+	bottomsubnet=192.168.65.0/24 # Address range "hidden" behind the bottom end (Frankfurt)
 
 
 

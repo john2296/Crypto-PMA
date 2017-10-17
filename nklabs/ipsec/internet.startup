@@ -1,6 +1,8 @@
 ifconfig eth10 hw ether 00:00:00:00:00:10
 ifconfig eth11 hw ether 00:00:00:00:00:11
+ifconfig eth12 hw ether 00:00:00:00:00:12
 
 ifconfig eth10 192.0.2.1/24
 ifconfig eth11 198.51.100.1/24
+ifconfig eth12 213.1.133.1/24
 
