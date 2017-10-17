@@ -1,0 +1,2 @@
+ifconfig eth0 hw ether 00:bb:bb:bb:bb:bb
+ifconfig eth0 10.0.0.2/24
