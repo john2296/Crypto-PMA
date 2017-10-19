@@ -1,5 +1,6 @@
-rA: hostile
-rB: hostile
-a:  rA
-b:  rB
-c:  rC
+rWarwick: hostile
+rLondon: hostile
+rFrankfurt: hostile
+Warwick:  rWarwick
+London:  rLondon
+Frankfurt:  rFrankfurt

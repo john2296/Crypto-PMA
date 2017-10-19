@@ -22,7 +22,7 @@ config setup
 
 ####################################
 ## the rA end of the rA to rB vpn ##
-conn rA-rB-vpn                    # 
+conn rWarwick-rLondon-vpn                    # 
         authby=secret             # psk is synonym of secret
         auto=start                # initiate connection at startup
         keyexchange=ikev2         # prefer v2 to v1
@@ -37,7 +37,7 @@ conn rA-rB-vpn                    #
 
 ####################################
 ## the rA end of the rA to rB vpn ##
-conn rA-rC-vpn                    # 
+conn rWarwick-rFrankfurt-vpn                    # 
         authby=secret             # psk is synonym of secret
         auto=start                # initiate connection at startup
         keyexchange=ikev2         # prefer v2 to v1
