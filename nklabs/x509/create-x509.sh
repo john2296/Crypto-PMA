@@ -41,12 +41,10 @@ cd ./ca/root/
 mkdir certs crl newcerts private unsigned signed
 chmod 700 private
 touch index.txt
-# place 1000 into the file serial
 echo 1000 > serial
 
 # create the root ca key (should really be 4096 bits) "ca_secret"
 openssl genrsa -aes256 -out private/ca.key.pem 1024
-#onlu user can read
 chmod 400 private/ca.key.pem
 
 # create the root cert
@@ -63,7 +61,6 @@ openssl x509 -noout -text -in certs/ca.cert.pem
 
 ######### INTERMEDIATE CA ###########
 # prep the intermediate ca dirs
-# Go to X509 Directory
 cd $X509DIR
 mkdir -p ./ca/intermediate
 cd ./ca/intermediate/
@@ -132,7 +129,7 @@ openssl req -config ./openssl.cnf \
 cd ${X509DIR}
 cp ./server/server.csr.pem ./ca/intermediate/unsigned/
 
-# get the intermdiate cert signed by the root cert
+# get the server cert signed by the intermediate cert
 cd ./ca/intermediate/
 openssl ca -config ./openssl.cnf \
       -extensions server_cert \
@@ -154,6 +151,8 @@ chmod 444 ./server/server.cert.pem
 cd ${X509DIR}
 cp ./ca/root/certs/ca.cert.pem /dev/null
 
+
+/home/john/Desktop/x509/rLondon/etc/ipsec.d
 
 
 
