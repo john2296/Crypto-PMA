@@ -51,8 +51,8 @@ conn rLondon-rFrankfurt-vpn                    #
         rightsubnet=192.168.65.0/24 # address range "hidden" behind the right end
 
 #############################################
-## the London end of the London to Tom vpn ##
-conn rLondon-Tom-vpn                    # 
+## the London end of the London to RoadWarrior vpn ##
+conn rLondon-RoadWarrior-vpn                    # 
 	ikelifetime=60m
 	keylife=20m
 	rekeymargin=3m

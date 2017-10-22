@@ -102,7 +102,7 @@ openssl x509 -inform DER -in certs/vpn_rB_Cert.der -noout -text
 # note the common name CN or the subject alternate name (--san)
 # MUST match the public domain name or ip addr of the server
 ipsec pki --issue \
-  --in certs/vpn_rC_csr.der \
+  --in csr/vpn_rC_csr.der \
   --lifetime 365 \
   --cacert cacerts/CA_Cert.der \
   --cakey /home/john/Desktop/ipsec/CA/etc/ipsec.d/private/CA_Key.der \

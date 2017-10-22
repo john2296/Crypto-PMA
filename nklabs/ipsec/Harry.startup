@@ -1,0 +1,12 @@
+ifconfig eth0 hw ether e0:ee:ee:ee:ee
+
+ifconfig eth0 192.100.0.202/24
+
+route add default gw 192.100.0.201
+
+sysctl -p
+
+service ipsec start
+
+
+
