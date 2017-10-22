@@ -1,4 +1,0 @@
-ifconfig eth0 hw ether c0:cc:cc:cc:cc
-ifconfig eth0 192.168.65.2/24
-route add default gw 192.168.65.1
-

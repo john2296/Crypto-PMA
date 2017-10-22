@@ -1,4 +1,0 @@
-ifconfig eth0 hw ether t0:tt:tt:tt:tt
-ifconfig eth0 200.100.100.20/27
-route add default gw 200.31.100.1
-
