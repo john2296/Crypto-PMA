@@ -4,3 +4,7 @@ rFrankfurt: hostile
 Warwick:  rWarwick
 London:  rLondon
 Frankfurt:  rFrankfurt
+rWarwick: rLondon
+rFrankfurt: rLondon
+Tom: London
+

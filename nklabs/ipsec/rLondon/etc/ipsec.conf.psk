@@ -50,5 +50,24 @@ conn rLondon-rFrankfurt-vpn                    #
         right=213.1.133.2          # public routable ip address
         rightsubnet=192.168.65.0/24 # address range "hidden" behind the right end
 
+#############################################
+## the London end of the London to Tom vpn ##
+conn rLondon-Tom-vpn                    # 
+	ikelifetime=60m
+	keylife=20m
+	rekeymargin=3m
+	keyingtries=1
+	keyexchange=ikev2
+	authby=secret
+        left=198.51.100.2        # public routable ip address
+        leftsubnet=10.0.0.0/27   # address range "hidden" behind the left end
+	leftfirewall=yes
+        right=%any  
+	auto=add
+
+
+
+
+
 
 
