@@ -20,8 +20,9 @@ config setup
 ## spcific vpn configuration parameters ##
 ## (one conn block per vpn)             ##
 
-####################################
-## the rA end of the rA to rB vpn ##
+##########################################
+## the Tom end of the Tom to London vpn ##
+
 
 conn %default
 	ikelifetime=60m
@@ -29,14 +30,16 @@ conn %default
 	rekeymargin=3m
 	keyingtries=1
 	keyexchange=ikev2
-	authby=secret
 
-conn Tom-rLondon-vpn                    # 
+conn Tom-rLondon-vpn
 	left=192.168.0.102
+	leftcert=vpn_Tom_Cert.der
+	leftid="192.168.0.102"
 	leftfirewall=yes
-        right=198.51.100.2        # public routable ip address
-        rightsubnet=10.0.0.0/27   # address range "hidden" behind the right end
-	auto=start
+	right=198.51.100.2
+	rightid="198.51.100.2"
+	rightsubnet=10.0.0.0/27
+	auto=add
 
 
 

@@ -21,8 +21,8 @@ config setup
 ## (one conn block per vpn)             ##
 
 ####################################
-## the rA end of the rA to rB vpn ##
-conn rA-rB-vpn                    # 
+## the rFrankfurt end of the rFrankfurt to rLondon vpn ##
+conn rFrankfurt-rLondon-vpn                    # 
         authby=pubkey             # psk is synonym of secret
         auto=start                # initiate connection at startup
         keyexchange=ikev2         # prefer v2 to v1
@@ -41,13 +41,42 @@ conn rA-rB-vpn                    #
         type=tunnel               # main alternative is transport
         
         ## by convention, left is the local end, right is the remote end
-        left=192.0.2.2            # public routable ip address
-        leftsubnet=172.22.22.40/29 # address range "hidden" behind the left end
+        left=213.1.133.2            # public routable ip address
+        leftsubnet=192.168.65.0/24 # address range "hidden" behind the left end
         right=198.51.100.2        # public routable ip address
         rightsubnet=10.0.0.0/27   # address range "hidden" behind the right end
-        leftcert=vpn_rA_Cert.der
-        leftid="192.0.2.2"        # or use distinguished name (dn) of cert
+        leftcert=vpn_rFrankfurt_Cert.der
+        leftid="213.1.133.2"        # or use distinguished name (dn) of cert
         rightid="198.51.100.2"
+
+####################################
+## the rFrankfurt end of the rFrankfurt to rWarwick vpn ##
+conn rFrankfurt-rWarwick-vpn                    # 
+        authby=pubkey             # psk is synonym of secret
+        auto=start                # initiate connection at startup
+        keyexchange=ikev2         # prefer v2 to v1
+        ## phase 1 ## encryption-integrity-dhgroup
+        ike=aes256-sha2_256-modp1024! 
+        ## phase 2 ##
+        esp=aes256-sha2_256!
+        keyingtries=0
+        ikelifetime=1h
+        lifetime=30m              # how long keys should last
+        margintime=10m
+        dpddelay=30               # dead peer detection delay
+        dpdaction=restart         # what to do with deteted dead peer
+        
+        pfs=yes                   # perfect forward secrecy
+        type=tunnel               # main alternative is transport
+        
+        ## by convention, left is the local end, right is the remote end
+        left=213.1.133.2            # public routable ip address
+        leftsubnet=192.168.65.0/24 # address range "hidden" behind the left end
+        right=192.0.2.2        # public routable ip address
+        rightsubnet=172.22.22.40/29   # address range "hidden" behind the right end
+        leftcert=vpn_rFrankfurt_Cert.der
+        leftid="213.1.133.2"        # or use distinguished name (dn) of cert
+        rightid="192.0.2.2"
         
 
 

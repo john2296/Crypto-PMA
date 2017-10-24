@@ -16,14 +16,8 @@ config setup
         #nat_traversal=yes
         #virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12
 
-##########################################
-## spcific vpn configuration parameters ##
-## (one conn block per vpn)             ##
-
-####################################
-## the rA end of the rA to rB vpn ##
-conn rA-rB-vpn                    # 
-        authby=pubkey             # psk is synonym of secret
+conn Harry-rLondon-vpn
+	authby=pubkey             # this covers rsa and dsa
         auto=start                # initiate connection at startup
         keyexchange=ikev2         # prefer v2 to v1
         ## phase 1 ## encryption-integrity-dhgroup
@@ -33,22 +27,16 @@ conn rA-rB-vpn                    #
         keyingtries=0
         ikelifetime=1h
         lifetime=30m              # how long keys should last
-        margintime=10m
+        margintime=10m            # how much before lifetime does rekeying start
         dpddelay=30               # dead peer detection delay
         dpdaction=restart         # what to do with deteted dead peer
-        
-        pfs=yes                   # perfect forward secrecy
-        type=tunnel               # main alternative is transport
-        
-        ## by convention, left is the local end, right is the remote end
-        left=192.0.2.2            # public routable ip address
-        leftsubnet=172.22.22.40/29 # address range "hidden" behind the left end
-        right=198.51.100.2        # public routable ip address
-        rightsubnet=10.0.0.0/27   # address range "hidden" behind the right end
-        leftcert=vpn_rA_Cert.der
-        leftid="192.0.2.2"        # or use distinguished name (dn) of cert
-        rightid="198.51.100.2"
-        
+	left=192.100.0.202
+	leftcert=vpn_Harry_Cert.der
+	leftid="192.100.0.202"
+	leftfirewall=yes
+	right=198.51.100.2
+	rightid="198.51.100.2"
+	rightsubnet=10.0.0.0/27
 
 
 
