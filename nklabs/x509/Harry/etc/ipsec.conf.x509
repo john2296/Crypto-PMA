@@ -32,7 +32,7 @@ conn Harry-rLondon-vpn
         dpdaction=restart         # what to do with deteted dead peer
 	left=192.100.0.202
 	leftcert=vpn_Harry_Cert.der
-	leftid="192.100.0.202"
+	leftid="Harry.PMA@cyber.test"
 	leftfirewall=yes
 	right=198.51.100.2
 	rightid="198.51.100.2"

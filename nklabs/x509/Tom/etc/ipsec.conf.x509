@@ -32,7 +32,7 @@ conn Tom-rLondon-vpn
         dpdaction=restart         # what to do with deteted dead peer
 	left=192.168.0.102
 	leftcert=vpn_Tom_Cert.der
-	leftid="192.168.0.102"
+	leftid="Tom_PMA@cyber.test"
 	leftfirewall=yes
 	right=198.51.100.2
 	rightid="198.51.100.2"
