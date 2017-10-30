@@ -27,7 +27,7 @@ conn vpn-between-rLondon-rWarwick            #
         auto=start                # initiate connection at startup
         keyexchange=ikev2         # prefer v2 to v1
         ## phase 1 ## encryption-integrity-dhgroup
-        ike=aes256-sha2_256-modp1024! 
+        ike=aes256-sha2_256-modp4096! 
         ## phase 2 ##
         esp=aes256-sha2_256!
         keyingtries=0
@@ -57,7 +57,7 @@ conn vpn-between-rLondon-rFrankfurt            #
         auto=start                # initiate connection at startup
         keyexchange=ikev2         # prefer v2 to v1
         ## phase 1 ## encryption-integrity-dhgroup
-        ike=aes256-sha2_256-modp1024! 
+        ike=aes256-sha2_256-modp4096! 
         ## phase 2 ##
         esp=aes256-sha2_256!
         keyingtries=0
@@ -85,7 +85,7 @@ conn rw
 	authby=pubkey             # this covers rsa and dsa
         keyexchange=ikev2         # prefer v2 to v1
         ## phase 1 ## encryption-integrity-dhgroup
-        ike=aes256-sha2_256-modp1024! 
+        ike=aes256-sha2_256-modp4096! 
         ## phase 2 ##
         esp=aes256-sha2_256!
         keyingtries=0

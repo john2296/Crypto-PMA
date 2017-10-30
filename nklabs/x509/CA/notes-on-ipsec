@@ -120,3 +120,7 @@ ipsec pki --print --in certs/vpn_rA_Cert.der
 openssl x509 -inform DER -in certs/vpn_rA_Cert.der -noout -text
 
 
+####################### CRL ########################################33
+ipsec pki --signcrl --cacert cacerts/CA_Cert.der --cakey /home/john/Desktop/ipsecX509/CA/etc/ipsec.d/private/CA_Key.der --reason superseded --cert /home/john/Desktop/ipsecX509/CA/etc/ipsec.d/certs/vpn_Tom_Cert.der > crls/crl.der
+
+
