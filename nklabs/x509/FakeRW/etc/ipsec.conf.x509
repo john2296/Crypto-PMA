@@ -16,7 +16,7 @@ config setup
         #nat_traversal=yes
         #virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12
 
-conn Harry-rLondon-vpn
+conn FakeRW-rLondon-vpn
 	authby=pubkey             # this covers rsa and dsa
         auto=start                # initiate connection at startup
         keyexchange=ikev2         # prefer v2 to v1
@@ -30,9 +30,9 @@ conn Harry-rLondon-vpn
         margintime=10m            # how much before lifetime does rekeying start
         dpddelay=30               # dead peer detection delay
         dpdaction=restart         # what to do with deteted dead peer
-	left=192.100.0.202
-	leftcert=vpn_Harry_Cert.der
-	leftid="Harry_PMA@cyber.test"
+	left=180.50.0.2
+	leftcert=vpn_FakeRW_Cert.der
+	leftid="FakeRW_PMA@cyber.test"
 	leftfirewall=yes
 	right=198.51.100.2
 	rightid="198.51.100.2"
