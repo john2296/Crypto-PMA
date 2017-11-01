@@ -30,7 +30,7 @@ conn Harry-rLondon-vpn
         margintime=10m            # how much before lifetime does rekeying start
         dpddelay=30               # dead peer detection delay
         dpdaction=restart         # what to do with deteted dead peer
-	left=192.100.0.202
+	left= %any # could be any IP for example 192.100.0.202
 	leftcert=vpn_Harry_Cert.der
 	leftid="Harry_PMA@cyber.test"
 	leftfirewall=yes

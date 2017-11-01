@@ -30,7 +30,7 @@ conn Tom-rLondon-vpn
         margintime=10m            # how much before lifetime does rekeying start
         dpddelay=30               # dead peer detection delay
         dpdaction=restart         # what to do with deteted dead peer
-	left=192.168.0.102
+	left=%any # could be any IP for example 192.168.0.102
 	leftcert=vpn_Tom_Cert.der
 	leftid="Tom_PMA@cyber.test"
 	leftfirewall=yes
