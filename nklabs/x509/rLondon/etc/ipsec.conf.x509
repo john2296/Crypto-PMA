@@ -83,20 +83,20 @@ conn vpn-between-rLondon-rFrankfurt            #
 ## the rLondon end of the rLondon to Road Warrior vpn ##
 conn rw
 	authby=pubkey             # this covers rsa and dsa
-        keyexchange=ikev2         # prefer v2 to v1
-        ## phase 1 ## encryption-integrity-dhgroup
-        ike=aes256-sha2_256-modp4096! 
-        ## phase 2 ##
-        esp=aes256-sha2_256!
-        keyingtries=0
-        ikelifetime=1h
-        lifetime=30m              # how long keys should last
-        margintime=10m            # how much before lifetime does rekeying start
-        dpddelay=30               # dead peer detection delay
-        dpdaction=restart         # what to do with deteted dead peer
+    keyexchange=ikev2         # prefer v2 to v1
+    ## phase 1 ## encryption-integrity-dhgroup
+    ike=aes256-sha2_256-modp4096! 
+    ## phase 2 ##
+    esp=aes256-sha2_256!
+    keyingtries=0
+    ikelifetime=1h
+    lifetime=30m              # how long keys should last
+    margintime=10m            # how much before lifetime does rekeying start
+    dpddelay=30               # dead peer detection delay
+    dpdaction=restart         # what to do with deteted dead peer
         
-        pfs=yes                   # perfect forward secrecy
-        type=tunnel               # main alternative is transport
+    pfs=yes                   # perfect forward secrecy
+    type=tunnel               # main alternative is transport
 	left=198.51.100.2
 	leftsubnet=10.0.0.0/27 
 	right=%any 
