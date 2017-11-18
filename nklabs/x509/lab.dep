@@ -1,6 +1,7 @@
 rWarwick: hostile
 rLondon: hostile
 rFrankfurt: hostile
+rFrankfurt: hostile_RW
 Warwick:  rWarwick
 London:  rLondon
 Frankfurt:  rFrankfurt

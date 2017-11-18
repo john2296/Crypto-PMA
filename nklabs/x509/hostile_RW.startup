@@ -1,0 +1,6 @@
+ifconfig eth0 hw ether 70:77:77:77:77:77
+ifconfig eth0 194.50.75.154
+
+
+
+
